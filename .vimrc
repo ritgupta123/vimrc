@@ -66,17 +66,6 @@ Plug 'ericcurtin/CurtineIncSw.vim'
 
 call plug#end()
 
-"Setting the colorscheme
-if &t_Co >= 256 || has("gui_running")
-    set background=dark
-    if !empty(glob('~/.vim/plugged/vim-colorschemes/'))
-        colorscheme gruvbox
-    endif
-endif
-if &t_Co > 2 || has("gui_running")
-    "switch syntax highlighting on, when the terminal has colors
-    syntax on
-endif
 
 "Airline
 let g:airline_powerline_fonts = 0
