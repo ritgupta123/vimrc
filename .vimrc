@@ -1,5 +1,6 @@
 "add/ tabs as spaces, and make them 4 spaces
 let mapleader = ","
+set nocompatible
 set autoindent
 set smartindent
 set smarttab
