@@ -46,7 +46,7 @@ Plug 'tpope/vim-commentary'       "Makes commenting easier
 Plug 'tpope/vim-surround'           "Allows changing of surrounding brackets, quotes, etc
 Plug 'tpope/vim-repeat'           "Allows repeating commands
 Plug 'lfilho/cosco.vim'           "Automatic comma and semicolon
-Plugin 'jiangmiao/auto-pairs'   " For automatic quote,braces insertion
+Plug 'jiangmiao/auto-pairs'   " For automatic quote,braces insertion
 Plug 'ctrlpvim/ctrlp.vim'            "Use ctrl-p to switch files
 
 "Airine 
@@ -119,4 +119,4 @@ noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<C
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 set background=dark
-colo gruvbox
+"colo gruvbox
