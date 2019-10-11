@@ -1,6 +1,5 @@
 "add/ tabs as spaces, and make them 4 spaces
 let mapleader = ","
-set nocompatible
 set autoindent
 set smartindent
 set smarttab
@@ -47,8 +46,12 @@ Plug 'tpope/vim-commentary'       "Makes commenting easier
 Plug 'tpope/vim-surround'           "Allows changing of surrounding brackets, quotes, etc
 Plug 'tpope/vim-repeat'           "Allows repeating commands
 Plug 'lfilho/cosco.vim'           "Automatic comma and semicolon
-Plug 'jiangmiao/auto-pairs'   " For automatic quote,braces insertion
+Plug 'jiangmiao/auto-pairs'      "Automatic pairs for quotes etc
+Plug 'morhetz/gruvbox'
 Plug 'ctrlpvim/ctrlp.vim'            "Use ctrl-p to switch files
+Plug 'crusoexia/vim-monokai'
+Plug 'crusoexia/vim-monokai'
+Plug 'vim-syntastic/syntastic'      " C/C++ error checking
 
 "Airine 
 Plug 'vim-airline/vim-airline'
@@ -61,12 +64,11 @@ Plug 'chiel92/vim-autoformat'
 Plug 'sheerun/vim-polyglot'
 
 "Style
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ericcurtin/CurtineIncSw.vim'
 
 call plug#end()
-
 
 "Airline
 let g:airline_powerline_fonts = 0
@@ -94,23 +96,29 @@ set pastetoggle=<F2>
 
 " To insert semicolon at end of line
 nnoremap <leader>; A;<ESC>
+set background=dark
+syntax on
+"colo gruvbox
 
 "Git Gutter
 let g:gitgutter_realtime = 1
 set updatetime=500
-
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_c_checkers = ['gcc']
+let g:syntastic_c_compiler_options = "-Wall"
+let g:syntastic_cpp_checkers = ['clang_check', 'gcc', 'g++']
+let g:syntastic_cpp_compiler_options = "-Wall"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+
 map <F5> :call CurtineIncSw()<CR>
 :map <C-j> cw<C-r>0<ESC>
-autocmd FileType c,cpp,java,scala let b:comment_leader = '// '   "Automatic comments
+autocmd FileType c,cc,cpp,java,scala let b:comment_leader = '// '   "Automatic comments
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
@@ -118,6 +126,3 @@ autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
-set background=dark
-"colo gruvbox
