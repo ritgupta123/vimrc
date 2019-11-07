@@ -52,6 +52,7 @@ Plug 'ctrlpvim/ctrlp.vim'            "Use ctrl-p to switch files
 Plug 'crusoexia/vim-monokai'
 Plug 'crusoexia/vim-monokai'
 Plug 'vim-syntastic/syntastic'      " C/C++ error checking
+Plug 'Valloric/YouCompleteMe'       " Code COmpletion tool ycm
 
 "Airine 
 Plug 'vim-airline/vim-airline'
